@@ -8,4 +8,4 @@ cd ${dir}
 temp=`./adt7410.py`
 ret=`./tweet.py "${date}
 現在の気温:${temp}度"` 
-echo "${0}:${date}:${who}:${ret}" >> /home/temama/log.txt
+echo "${0}:${date}:${who}:${ret}" >> log.txt
