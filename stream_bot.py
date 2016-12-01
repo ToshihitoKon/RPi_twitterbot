@@ -7,16 +7,14 @@ import requests
 import subprocess
 import json
 
-CK = 'Consumer Key'
-CS = 'Consumer Secret'
-AT = 'Access Token'
-AS = 'Access Token Secret'
-
 url = "https://stream.twitter.com/1.1/statuses/filter.json"
 tweet_url = "https://api.twitter.com/1.1/statuses/update.json"
 
-auth = OAuth1(CK, CS, AT, AS)
-twitter = OAuth1Session(CK, CS, AT, AS)
+with open('token.json', 'r') as f:
+    TOKEN = json.load(f)
+
+auth = OAuth1(**TOKEN)
+twitter = OAuth1Session(**TOKEN)
 r = requests.post(url, auth=auth, stream=True, data={'screen_name':'@Tkon_sec','track':'@Tkon_bot'})
 
 print("ready.")
