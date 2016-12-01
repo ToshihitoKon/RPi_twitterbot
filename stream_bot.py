@@ -25,15 +25,15 @@ for line in r.iter_lines():
 		#print(line.decode('utf-8'))
 		try:
 			data = json.loads(line.decode('utf-8'))
-				
+
 			get_time = subprocess.check_output('date').decode('utf-8')
 			print('@'+data['user']['screen_name']+':'+data['text'])
 			textv = data['text'].split(' ')
 			try:
 				if textv[0] != '@Tkon_bot' :
 					continue
-		
-				if data['user']['screen_name'] == 'Tkon_sec':			
+
+				if data['user']['screen_name'] == 'Tkon_sec':
 					if textv[1] == 'help':
 						twitter.post(tweet_url, params={"status":"@Tkon_sec help, play, stop, repeat[on off]", "in_reply_to_status_id": data['id']})
 						continue
@@ -63,7 +63,7 @@ for line in r.iter_lines():
 					else:
 						twitter.post(tweet_url, params={"status":"@"+data['user']['screen_name']+" "+get_time+"command not found: "+textv[1], "in_reply_to_status_id": data['id'] })
 						continue
-				
+
 					twitter.post(tweet_url, params={"status":"@"+data['user']['screen_name']+" "+get_time+"OK. "+ms, "in_reply_to_status_id": data['id'] })
 				else :
 					if textv[1] == 'ばぶー':
@@ -72,6 +72,6 @@ for line in r.iter_lines():
 						twitter.post(tweet_url, params={"status":"@"+data['user']['screen_name']+" "+get_time+"usase: ばぶー", "in_reply_to_status_id": data['id'] })
 			except IndexError :
 				twitter.post(tweet_url, params={"status":"@"+data['user']['screen_name']+" "+get_time+"Sorry, can't parse command.", "in_reply_to_status_id": data['id'] })
-				continue 
+				continue
 		except json.decoder.JSONDecodeError:
 			continue
