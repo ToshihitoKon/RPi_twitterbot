@@ -51,7 +51,7 @@ for line in r.iter_lines():
                         subprocess.call('mpc repeat on', shell=True)
                         ms = 'set music repeat on.'
                 elif textv[1] == 'sleep' :
-                    subprocess.call('nohup /home/temama/twitter/stop.sh > /tmp/noh.log 2>&1 &', shell=True)
+                    subprocess.call('nohup ~/RPi_twitterbot/stop.sh > /tmp/noh.log 2>&1 &', shell=True)
                     ms = 'set sleep timer.'
                 elif textv[1] == 'playlist':
                     if textv[2] == 'marble' :
