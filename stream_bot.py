@@ -15,7 +15,7 @@ with open('token.json', 'r') as f:
 
 auth = OAuth1(**TOKEN)
 twitter = OAuth1Session(**TOKEN)
-r = requests.post(url, auth=auth, stream=True, data={'screen_name':'@Tkon_sec','track':'@Tkon_bot'})
+r = requests.post(url, auth=auth, stream=True, data={'track':'@Tkon_bot'})
 
 print("ready.")
 for line in r.iter_lines():
@@ -59,7 +59,7 @@ for line in r.iter_lines():
 							subprocess.call('mpc clear; mpc load easylistening; mpc play', shell=True)
 							ms = 'set playlist. [EasyListening]'
 					else:
-						twitter.post(tweet_url, params={"status":"@"+data['user']['screen_name']+" "+get_time+"command not found: "+textv[1], "in_reply_to_status_id": data['id'] })
+						twitter.post(tweet_url, params={ "status":"@"+data['user']['screen_name']+" "+get_time+"command not found: "+textv[1], "in_reply_to_status_id": data['id']})
 						continue
 
 					twitter.post(tweet_url, params={"status":"@"+data['user']['screen_name']+" "+get_time+"OK. "+ms, "in_reply_to_status_id": data['id'] })

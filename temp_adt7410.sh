@@ -1,7 +1,7 @@
-#/usr/bin/zsh
+#/usr/bin/sh
 
 export LANG=en_US.UTF-8
-dir='~/twitter'
+dir=`dirname "${0}"`
 date=`date`
 who=`whoami`
 cd ${dir}
