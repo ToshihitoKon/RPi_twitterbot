@@ -1,0 +1,6 @@
+{
+  "client_key"            : "Consumer Key",
+  "client_secret"         : "Consumer Secret",
+  "resource_owner_key"    : "Access Token",
+  "resource_owner_secret" : "Access Token Secret"
+}
