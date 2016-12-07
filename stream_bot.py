@@ -35,7 +35,7 @@ for line in r.iter_lines():
 
             if data['user']['screen_name'] == 'Tkon_sec':
                 if textv[1] == 'help':
-                    twitter.post(tweet_url, params={"status":"@Tkon_sec help, play, stop, repeat[on off]", "in_reply_to_status_id": data['id']})
+                    twitter.post(tweet_url, params={"status":"@Tkon_sec\nhelp\nplay\nstop\nrepeat[on off]\nplaylist[marble, el]\nsleep", "in_reply_to_status_id": data['id']})
                     continue
                 elif textv[1] == 'stop':
                     subprocess.call('mpc stop', shell=True)
