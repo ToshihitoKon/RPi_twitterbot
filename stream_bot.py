@@ -10,7 +10,7 @@ import json
 url = "https://stream.twitter.com/1.1/statuses/filter.json"
 tweet_url = "https://api.twitter.com/1.1/statuses/update.json"
 
-with open('/home/temama/RPi_twitterbot/token.json', 'r') as f:
+with open('token.json', 'r') as f:
     TOKEN = json.load(f)
 
 auth = OAuth1(**TOKEN)
