@@ -10,7 +10,7 @@ import json
 url = "https://stream.twitter.com/1.1/statuses/filter.json"
 tweet_url = "https://api.twitter.com/1.1/statuses/update.json"
 
-with open('token.json', 'r') as f:
+with open('/home/temama/RPi_twitterbot/token.json', 'r') as f:
     TOKEN = json.load(f)
 
 auth = OAuth1(**TOKEN)
@@ -51,7 +51,7 @@ for line in r.iter_lines():
                         subprocess.call('mpc repeat on', shell=True)
                         ms = 'set music repeat on.'
                 elif textv[1] == 'sleep' :
-                    subprocess.call('nohup ~/RPi_twitterbot/stop.sh > /tmp/noh.log 2>&1 &', shell=True)
+                    subprocess.call('nohup ./stop.sh > /tmp/noh.log 2>&1 &', shell=True)
                     ms = 'set sleep timer.'
                 elif textv[1] == 'playlist':
                     if textv[2] == 'marble' :
